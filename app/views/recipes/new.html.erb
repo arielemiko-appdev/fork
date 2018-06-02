@@ -1,0 +1,127 @@
+<!-- Validation failure messages -->
+<% if @recipe.errors.any? %>
+  <% @recipe.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Recipe</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_recipe" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for title -->
+      <div class="form-group">
+        <label for="title" class="control-label">
+          Title
+        </label>
+
+        <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="<%= @recipe.title %>">
+      </div>
+
+      <!-- Label and input for ingredients -->
+      <div class="form-group">
+        <label for="ingredients" class="control-label">
+          Ingredients
+        </label>
+
+        <input type="text" id="ingredients" name="ingredients" placeholder="Ingredients" class="form-control" value="<%= @recipe.ingredients %>">
+      </div>
+
+      <!-- Label and input for directions -->
+      <div class="form-group">
+        <label for="directions" class="control-label">
+          Directions
+        </label>
+
+        <textarea id="directions" name="directions" placeholder="Directions" class="form-control" rows="3"><%= @recipe.directions %></textarea>
+      </div>
+
+      <!-- Label and input for original_source -->
+      <div class="form-group">
+        <label for="original_source" class="control-label">
+          Original source
+        </label>
+
+        <input type="text" id="original_source" name="original_source" placeholder="Original source" class="form-control" value="<%= @recipe.original_source %>">
+      </div>
+
+      <!-- Label and input for cuisine -->
+      <div class="form-group">
+        <label for="cuisine" class="control-label">
+          Cuisine
+        </label>
+
+        <input type="text" id="cuisine" name="cuisine" placeholder="Cuisine" class="form-control" value="<%= @recipe.cuisine %>">
+      </div>
+
+      <!-- Label and input for type_of_dish -->
+      <div class="form-group">
+        <label for="type_of_dish" class="control-label">
+          Type of dish
+        </label>
+
+        <input type="text" id="type_of_dish" name="type_of_dish" placeholder="Type of dish" class="form-control" value="<%= @recipe.type_of_dish %>">
+      </div>
+
+      <!-- Label and input for photo -->
+      <div class="form-group">
+        <label for="photo" class="control-label">
+          Photo
+        </label>
+
+        <input type="text" id="photo" name="photo" placeholder="Photo" class="form-control" value="<%= @recipe.photo %>">
+      </div>
+
+      <!-- Label and input for review -->
+      <div class="form-group">
+        <label for="review" class="control-label">
+          Review
+        </label>
+
+        <input type="text" id="review" name="review" placeholder="Review" class="form-control" value="<%= @recipe.review %>">
+      </div>
+
+      <!-- Label and input for suggestions -->
+      <div class="form-group">
+        <label for="suggestions" class="control-label">
+          Suggestions
+        </label>
+
+        <input type="text" id="suggestions" name="suggestions" placeholder="Suggestions" class="form-control" value="<%= @recipe.suggestions %>">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @recipe.user_id %>">
+      </div>
+
+      <!-- Label and input for parent_id -->
+      <div class="form-group">
+        <label for="parent_id" class="control-label">
+          Parent
+        </label>
+
+        <input type="text" id="parent_id" name="parent_id" placeholder="Parent" class="form-control" value="<%= @recipe.parent_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Recipe
+      </button>
+      or
+      <a href="/recipes">Cancel</a>
+    </form>
+  </div>
+</div>

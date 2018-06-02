@@ -1,0 +1,55 @@
+<div class="page-header">
+  <h3>Recipe #<%= @recipe.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Title</dt>
+      <dd><%= @recipe.title %></dd>
+
+      <dt>Ingredients</dt>
+      <dd><%= @recipe.ingredients %></dd>
+
+      <dt>Directions</dt>
+      <dd><%= @recipe.directions %></dd>
+
+      <dt>Original source</dt>
+      <dd><%= @recipe.original_source %></dd>
+
+      <dt>Cuisine</dt>
+      <dd><%= @recipe.cuisine %></dd>
+
+      <dt>Type of dish</dt>
+      <dd><%= @recipe.type_of_dish %></dd>
+
+      <dt>Photo</dt>
+      <dd><%= @recipe.photo %></dd>
+
+      <dt>Review</dt>
+      <dd><%= @recipe.review %></dd>
+
+      <dt>Suggestions</dt>
+      <dd><%= @recipe.suggestions %></dd>
+
+      <dt>User</dt>
+      <dd><%= @recipe.user_id %></dd>
+
+      <dt>Parent</dt>
+      <dd><%= @recipe.parent_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/recipes" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/recipes/<%= @recipe.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_recipe/<%= @recipe.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
