@@ -1,6 +1,7 @@
 class StepsController < ApplicationController
   def index
-    @steps = Step.page(params[:page]).per(10)
+    @q = Step.ransack(params[:q])
+    @steps = @q.result(:distinct => true).includes(:recipe).page(params[:page]).per(10)
 
     render("steps/index.html.erb")
   end
