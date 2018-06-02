@@ -17,7 +17,7 @@
 
       <% @steps.each do |step| %>
       <tr>
-        <td><%= step.recipe_id %></td>
+        <td><%= step.recipe.title %></td>
         <td><%= step.step_number %></td>
         <td><%= step.direction %></td>
         <td>
