@@ -83,6 +83,38 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_step" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for recipe_id -->
+      <input type="hidden" name="recipe_id" value="<%= @recipe.id %>">
+
+      <!-- Label and input for step_number -->
+      <div class="form-group">
+        <label for="step_number" class="control-label">
+          Step number
+        </label>
+
+        <input type="text" id="step_number" name="step_number" placeholder="Step number" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for direction -->
+      <div class="form-group">
+        <label for="direction" class="control-label">
+          Direction
+        </label>
+
+        <textarea id="direction" name="direction" placeholder="Direction" class="form-control" rows="3"></textarea>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Step
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -114,6 +146,38 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_ingredient" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for recipe_id -->
+      <input type="hidden" name="recipe_id" value="<%= @recipe.id %>">
+
+      <!-- Label and input for quantity -->
+      <div class="form-group">
+        <label for="quantity" class="control-label">
+          Quantity
+        </label>
+
+        <input type="text" id="quantity" name="quantity" placeholder="Quantity" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for ingredient -->
+      <div class="form-group">
+        <label for="ingredient" class="control-label">
+          Ingredient
+        </label>
+
+        <input type="text" id="ingredient" name="ingredient" placeholder="Ingredient" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Ingredient
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
