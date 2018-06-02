@@ -1,6 +1,10 @@
 class Recipe < ApplicationRecord
   # Direct associations
 
+  has_many   :elements,
+             :class_name => "Ingredient",
+             :dependent => :destroy
+
   has_many   :steps,
              :dependent => :destroy
 
