@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @ingredient.errors.any? %>
+  <% @ingredient.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Ingredient</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_ingredient" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for recipe_id -->
+      <div class="form-group">
+        <label for="recipe_id" class="control-label">
+          Recipe
+        </label>
+
+        <input type="text" id="recipe_id" name="recipe_id" placeholder="Recipe" class="form-control" value="<%= @ingredient.recipe_id %>">
+      </div>
+
+      <!-- Label and input for quantity -->
+      <div class="form-group">
+        <label for="quantity" class="control-label">
+          Quantity
+        </label>
+
+        <input type="text" id="quantity" name="quantity" placeholder="Quantity" class="form-control" value="<%= @ingredient.quantity %>">
+      </div>
+
+      <!-- Label and input for ingredient -->
+      <div class="form-group">
+        <label for="ingredient" class="control-label">
+          Ingredient
+        </label>
+
+        <input type="text" id="ingredient" name="ingredient" placeholder="Ingredient" class="form-control" value="<%= @ingredient.ingredient %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Ingredient
+      </button>
+      or
+      <a href="/ingredients">Cancel</a>
+    </form>
+  </div>
+</div>
