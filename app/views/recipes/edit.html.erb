@@ -100,14 +100,8 @@
         <input type="text" id="suggestions" name="suggestions" placeholder="Suggestions" class="form-control" value="<%= @recipe.suggestions %>">
       </div>
 
-      <!-- Label and input for user_id -->
-      <div class="form-group">
-        <label for="user_id" class="control-label">
-          User
-        </label>
-
-        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :email, @recipe.user_id), :class => "form-control") %>
-      </div>
+      
+      
 
       <!-- Label and input for parent_id -->
       <div class="form-group">
