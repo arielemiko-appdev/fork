@@ -6,7 +6,13 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Recipe</dt>
-      <dd><%= @step.recipe_id %></dd>
+      <dd>
+        <% if @step.recipe.present? %>
+          <a href="/recipes/<%= @step.recipe_id %>">
+            <%= @step.recipe.title %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Step number</dt>
       <dd><%= @step.step_number %></dd>

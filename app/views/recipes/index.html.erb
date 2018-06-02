@@ -34,7 +34,13 @@
         <td><img src='<%= recipe.photo %>' class='img-responsive'></td>
         <td><%= recipe.review %></td>
         <td><%= recipe.suggestions %></td>
-        <td><%= recipe.user.email %></td>
+        <td>
+          <% if recipe.user.present? %>
+            <a href="/users/<%= recipe.user.id %>">
+              <%= recipe.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td><%= recipe.parent_id %></td>
         <td>
           <a href="/recipes/<%= recipe.id %>" class="btn btn-primary">Show</a>

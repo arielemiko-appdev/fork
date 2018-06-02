@@ -17,7 +17,13 @@
 
       <% @steps.each do |step| %>
       <tr>
-        <td><%= step.recipe.title %></td>
+        <td>
+          <% if step.recipe.present? %>
+            <a href="/recipes/<%= step.recipe.id %>">
+              <%= step.recipe.title %>
+            </a>
+          <% end %>
+        </td>
         <td><%= step.step_number %></td>
         <td><%= step.direction %></td>
         <td>
