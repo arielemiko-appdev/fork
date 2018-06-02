@@ -1,4 +1,6 @@
 ActiveAdmin.register Recipe do
+
+ permit_params :title, :ingredients, :directions, :original_source, :cuisine, :type_of_dish, :photo, :review, :suggestions, :user_id, :parent_id
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
