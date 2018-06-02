@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @step.errors.any? %>
+  <% @step.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Step #<%= @step.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_step/<%= @step.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for recipe_id -->
+      <div class="form-group">
+        <label for="recipe_id" class="control-label">
+          Recipe
+        </label>
+
+        <input type="text" id="recipe_id" name="recipe_id" placeholder="Recipe" class="form-control" value="<%= @step.recipe_id %>">
+      </div>
+
+      <!-- Label and input for step_number -->
+      <div class="form-group">
+        <label for="step_number" class="control-label">
+          Step number
+        </label>
+
+        <input type="text" id="step_number" name="step_number" placeholder="Step number" class="form-control" value="<%= @step.step_number %>">
+      </div>
+
+      <!-- Label and input for direction -->
+      <div class="form-group">
+        <label for="direction" class="control-label">
+          Direction
+        </label>
+
+        <textarea id="direction" name="direction" placeholder="Direction" class="form-control" rows="3"><%= @step.direction %></textarea>
+      </div>
+
+      <button class="btn btn-warning">
+        Update Step
+      </button>
+      or
+      <a href="/steps/<%= @step.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

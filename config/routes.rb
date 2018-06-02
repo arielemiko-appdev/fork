@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Step resource:
+  # CREATE
+  get "/steps/new", :controller => "steps", :action => "new"
+  post "/create_step", :controller => "steps", :action => "create"
+
+  # READ
+  get "/steps", :controller => "steps", :action => "index"
+  get "/steps/:id", :controller => "steps", :action => "show"
+
+  # UPDATE
+  get "/steps/:id/edit", :controller => "steps", :action => "edit"
+  post "/update_step/:id", :controller => "steps", :action => "update"
+
+  # DELETE
+  get "/delete_step/:id", :controller => "steps", :action => "destroy"
+  #------------------------------
+
   # Routes for the Ingredient resource:
   # CREATE
   get "/ingredients/new", :controller => "ingredients", :action => "new"
